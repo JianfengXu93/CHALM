@@ -39,6 +39,9 @@ CHALM is tested on python 2.7
 =======
 EXAMPLE
 =======
+Download link for example data
+http://dldcc-web.brc.bcm.edu/lilab/JX/CHALM_example/example.zip
+
 cd example/
 
 1) Calculate the traditional methylation level for promoter CpG islands (CGIs)
