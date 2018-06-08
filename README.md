@@ -5,7 +5,7 @@ Different from calculating the traditional mean methylation level of a predefine
 - Jianfeng Xu (jianfenx@bcm.edu)
 - Wei Li (wl1@bcm.edu)
 ## Availability
-All documents can be downloaded from GitHub link: [https://github.com/JR0202/CHALM](https://github.com/JR0202/CHALM)
+All documents can be downloaded from GitHub link: [https://github.com/JR0202/CHALM][1]
 ## Dependencies
 - samtools/0.1.19
 - anaconda/2.5.0 
@@ -15,7 +15,7 @@ _note: CHALM depends on above packages, but some tools included in CHALM may hav
 No installations are needed. Simply run the python scripts as:  `python <python scripts>`
 
 CHALM is tested on python 2.7.
-## Code Example (the "example" folder as the working dictory: http://dldcc-web.brc.bcm.edu/lilab/JX/CHALM_example/example.zip)
+## Code Example (the "example" folder as the working dictory: http://dldcc-web.brc.bcm.edu/lilab/JX/CHALM\_example/example.zip)
 ### 1. Calculate the traditional methylation level for promoter CGIs
 #### a. CpG meth ratio
 ```bash
@@ -52,7 +52,7 @@ python ../src/CHALM_SVD_imputation.py -d hg19.fa -e 100 -x CG -R Human_CGI_bedfi
 - samtools/0.1.19
 - anaconda/2.5.0 
 - bedtools/2.17.0
-- pytorch (install from [http://pytorch.org/](http://pytorch.org/))
+- pytorch (install from [http://pytorch.org/][2])
 #### b. Command example
 ##### (1) Process aligned reads for deep learning
 ```bash
@@ -66,12 +66,12 @@ python ../src/Deep_learning_read_process.py -d hg19.fa -x CG -p -r -S -o output_
 ```bash
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary -d -o output_examples/
 ```
-![](CD3_primary_deep_learning_prediction.png)
+![][image-1]
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_control -d -o output_examples/
 ```
-![](CD3_primary_control_deep_learning_prediction.png)
+![][image-2]
 _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated by RSEM (rsem-calculate-expression)_
 ### 7. Deep learning prediction of expression by CHALM (pre-trained model)
 #### a. Command example
@@ -79,10 +79,17 @@ _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated
 ```bash
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained --model pretrained_model.pt -d -o output_examples/ 
 ```
-![](CD3_primary_pretrained_deep_learning_prediction.png)
+![][image-3]
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained_control --model pretrained_model.pt -d -o output_examples/
 ```
-![](CD3_primary_pretrained_control_deep_learning_prediction.png)
+![][image-4]
 
+[1]:	https://github.com/JR0202/CHALM
+[2]:	http://pytorch.org/
+
+[image-1]:	https://github.com/JR0202/CHALM/blob/master/example_figures/CD3_primary_deep_learning_prediction.png
+[image-2]:	https://github.com/JR0202/CHALM/blob/master/example_figures/CD3_primary_control_deep_learning_prediction.png
+[image-3]:	https://github.com/JR0202/CHALM/blob/master/example_figures/CD3_primary_pretrained_deep_learning_prediction.png
+[image-4]:	https://github.com/JR0202/CHALM/blob/master/example_figures/CD3_primary_pretrained_control_deep_learning_prediction.png
