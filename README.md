@@ -67,11 +67,13 @@ python ../src/Deep_learning_read_process.py -d hg19.fa -x CG -p -r -S -o output_
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary -d -o output_examples/
 ```
 ![][image-1]
+
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_control -d -o output_examples/
 ```
 ![][image-2]
+
 _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated by RSEM (rsem-calculate-expression)_
 ### 7. Deep learning prediction of expression by CHALM (pre-trained model)
 #### a. Command example
@@ -80,11 +82,13 @@ _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained --model pretrained_model.pt -d -o output_examples/ 
 ```
 ![][image-3]
+
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained_control --model pretrained_model.pt -d -o output_examples/
 ```
 ![][image-4]
+
 
 [1]:	https://github.com/JR0202/CHALM
 [2]:	http://pytorch.org/
