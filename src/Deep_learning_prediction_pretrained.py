@@ -167,6 +167,8 @@ if __name__ == '__main__':
     print(pearson[0], spearman[0])
     plt.scatter(exp_pred, exp, alpha =0.5)
     plt.title('Spearman correlation: {0:.2f}'.format(scipy.stats.spearmanr(exp,exp_pred)[0]), horizontalalignment='center', color = 'red')
+    plt.xlabel("Predicted Expression")
+    plt.ylabel("Measured Expression")
     plt.savefig('{}/{}_deep_learning_prediction.png'.format(args.out_dir, args.sample), dpi=300)
 
 

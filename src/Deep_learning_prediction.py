@@ -200,6 +200,8 @@ for batch_data_test in test_loader:
 
 plt.scatter(y_pred, y, alpha =0.5)
 plt.title('Spearman correlation: {0:.2f}'.format(scipy.stats.spearmanr(y,y_pred)[0]), horizontalalignment='center', color = 'red')
+plt.xlabel("Predicted Expression")
+plt.ylabel("Measured Expression")
 plt.savefig('{}/{}_deep_learning_prediction.png'.format(args.out_dir, args.sample), dpi=300)
 
 
