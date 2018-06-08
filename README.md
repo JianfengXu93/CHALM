@@ -54,7 +54,7 @@ python ../CHALM_SVD_imputation.py -d hg19.fa -e 100 -x CG -R Human_CGI_bedfile.t
 - bedtools/2.17.0
 - pytorch (install from [http://pytorch.org/](http://pytorch.org/))
 #### b. Command example
-##### Process aligned reads for deep learning
+##### (1) Process aligned reads for deep learning
 ```bash
 python ../Deep_learning_read_process.py -d hg19.fa -x CG -p -r -o output_examples -n CD3_primary --region Gene_CGI_match_TSS_sorted.txt --depth_cut 50 --read_bins 200 CD3_primary_CGI.sam
 ```
@@ -62,7 +62,7 @@ As control, add '-S' to disrupt the clonal information
 ```bash
 python ../Deep_learning_read_process.py -d hg19.fa -x CG -p -r -S -o output_examples -n CD3_primary --region Gene_CGI_match_TSS_sorted.txt --depth_cut 50 --read_bins 200 CD3_primary_CGI.sam
 ```
-##### Train deep learning model and do expression prediction
+##### (2) Train deep learning model and do expression prediction
 ```bash
 python ../Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary -d -o output_examples/
 ```
@@ -75,7 +75,7 @@ python ../Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_co
 _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated by RSEM (rsem-calculate-expression)_
 ### 7. Deep learning prediction of expression by CHALM (pre-trained model)
 #### a. Command example
-##### Expression prediction of CD3 primary cell by pre-trained model
+##### (1) Expression prediction of CD3 primary cell by pre-trained model
 ```bash
 python ../Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained --model pretrained_model.pt -d -o output_examples/ 
 ```
