@@ -9,9 +9,11 @@ All documents can be downloaded from GitHub link: [https://github.com/JR0202/CHA
 ## Dependencies
 - samtools/0.1.19
 - anaconda/2.5.0 
+
 _note: CHALM depends on above packages, but some tools included in CHALM may have different dependencies._
 ## Installation
 No installations are needed. Simply run the python scripts as:  `python <python scripts>`
+
 CHALM is tested on python 2.7.
 ## Example
 ### 1. Calculate the traditional methylation level for promoter CGIs
