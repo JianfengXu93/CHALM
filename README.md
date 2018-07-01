@@ -3,6 +3,7 @@
 Different from calculating the traditional mean methylation level of a predefined region (e.g., promoter CpG island), CHALM directly uses the aligned sequencing reads as input and quantifies the cell heterogeneity accounted clonal methylation level of this region, which are more powerful in predicting gene expression. CHALM can also calculate cell heterogeneity accounted clonal methylation ratio for single CpG sites which are often required for DMR/UMR detection analysis. Furthermore, in order to illustrate the importance of clonal information, CHALM provides a CNN deep learning framework to predict expression directly by aligned sequencing reads produced by high throughput methylation profiling technologies like whole genome bisulfite sequencing (WGBS). 
 ## Authors
 - Jianfeng Xu (jianfenx@bcm.edu)
+- Jianzhong Su (sujz@wibe.ac.cn)
 - Wei Li (wl1@bcm.edu)
 ## Availability
 All documents can be downloaded from GitHub link: [https://github.com/JR0202/CHALM][1]
