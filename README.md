@@ -64,20 +64,24 @@ python ../src/CHALM_SVD_imputation.py -d hg19.fa -e 100 -x CG -R Human_CGI_bedfi
 ##### (1) Process aligned reads for deep learning
 ```bash
 python ../src/Deep_learning_read_process.py -d hg19.fa -x CG -p -r -o output_examples -n CD3_primary --region Gene_CGI_match_TSS_sorted.txt --depth_cut 50 --read_bins 200 CD3_primary_CGI.sam
+# time cost: ~15min
 ```
 As control, add '-S' to disrupt the clonal information
 ```bash
 python ../src/Deep_learning_read_process.py -d hg19.fa -x CG -p -r -S -o output_examples -n CD3_primary --region Gene_CGI_match_TSS_sorted.txt --depth_cut 50 --read_bins 200 CD3_primary_CGI.sam
+# time cost: ~18min
 ```
 ##### (2) Train deep learning model and do expression prediction
 ```bash
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary -d -o output_examples/
+# time cost: ~5min
 ```
 ![][image-1]
 
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_control -d -o output_examples/
+# time cost: ~5min
 ```
 ![][image-2]
 
@@ -87,12 +91,14 @@ _note: CD3\_primary\_RSEM.genes.results contains the expression level calculated
 ##### (1) Expression prediction of CD3 primary cell by pre-trained model
 ```bash
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code.txt -f2 output_examples/CD3_primary_distance_2_TSS.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained --model pretrained_model.pt -d -o output_examples/ 
+# time cost: ~5min
 ```
 ![][image-3]
 
 Train the control data (with disrupted clonal information)
 ```bash
 python ../src/Deep_learning_prediction_pretrained.py -f1 output_examples/CD3_primary_meth_2D_code_control.txt -f2 output_examples/CD3_primary_distance_2_TSS_control.txt -m output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt -e CD3_primary_RSEM.genes.results -s CD3_primary_pretrained_control --model pretrained_model.pt -d -o output_examples/
+# time cost: ~5min
 ```
 ![][image-4]
 
