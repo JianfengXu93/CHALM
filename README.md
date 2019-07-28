@@ -20,23 +20,28 @@ CHALM is tested on python 2.7.
 ### 1. Calculate the traditional methylation level for promoter CGIs
 #### a. CpG meth ratio
 ```bash
-python ../src/CHALM.py trad -d hg19.fa -x CG -i no-action -p -r -m 4 -o output_examples/CD3_primary_trad_CpG_methratio.txt CD3_primary_CGI.sam
+python ../src/CHALM.py trad -d hg19.fa -x CG -i no-action -p -r -m 4 -o output_examples/CD3_primary_chr13_trad_CpG_methratio.txt CD3_primary_CGI_chr13.sam
+# time cost: ~15 min
 ```
 #### b. Traditional mean methylation
 ```bash
-python ../src/Trad_meth_mean.py -r CGI_Gene_match_human_sorted_header.txt -m output_examples/CD3_primary_trad_CpG_methratio.txt -o output_examples/CD3_primary_trad_meth_mean_promoter_CGI.txt
+python ../src/Trad_meth_mean.py -r CGI_Gene_match_human_sorted_header.txt -m output_examples/CD3_primary_chr13_trad_CpG_methratio.txt -o output_examples/CD3_primary_chr13_trad_meth_mean_promoter_CGI.txt
+# time cost: ~3 min
 ```
 ### 2. Quantify the heterogeneity-accounted methylation ratio of CpG sites (for downstream DMR/UMR detection)
 ```bash
-python ../src/CHALM.py trad -d hg19.fa -x CG -i no-action -p -r -m 4 -l 1 -o output_examples/CD3_primary_CHALM_CpG_methratio.txt CD3_primary_CGI.sam
+python ../src/CHALM.py trad -d hg19.fa -x CG -i no-action -p -r -m 4 -l 1 -o output_examples/CD3_primary_chr13_CHALM_CpG_methratio.txt CD3_primary_CGI_chr13.sam
+# time cost: ~15 min
 ```
 ### 3. Calculate the CHALM methylation level for predefined region (e.g., promoter CGIs)
 ```bash
-python ../src/CHALM.py CHALM -d hg19.fa -x CG -R Human_CGI_bedfile.txt -L 99 -l 1 -p -r -o output_examples/CD3_primary_CHALM.txt CD3_primary_CGI.sam
+python ../src/CHALM.py CHALM -d hg19.fa -x CG -R Human_CGI_bedfile.txt -L 99 -l 1 -p -r -o output_examples/CD3_primary_chr13_CHALM.txt CD3_primary_CGI_chr13.sam
+# time cost: ~12 min
 ```
 ### 4. Calculate differential CHALM methylation level
 ```bash
-python ../src/CHALM_dif.py -f1 output_examples/CD3_primary_CHALM.txt -f2 output_examples/CD14_primary_CHALM.txt -o output_examples/CD3_CD14_CHALM_dif.txt
+python ../src/CHALM_dif.py -f1 output_examples/CD3_primary_chr13_CHALM.txt -f2 output_examples/CD14_primary_chr13_CHALM.txt -o output_examples/CD3_CD14_chr13_CHALM_dif.txt
+# time cost: ~10 sec
 ```
 _note: for replicates, separate the files by "," (e.g., Condition\_1\_replicate1.txt,Condition\_1\_replicate2.txt,Condition\_1\_replicate3.txt)_
 ### 5. Imputation to extend the sequencing read length
@@ -46,7 +51,8 @@ _note: for replicates, separate the files by "," (e.g., Condition\_1\_replicate1
 - samtools/0.1.19
 #### b. Command example
 ```bash
-python ../src/CHALM_SVD_imputation.py -d hg19.fa -e 100 -x CG -R Human_CGI_bedfile.txt -L 99 -l 1 -p -r -o output_examples/CD3_primary_CHALM_extend_100.txt CD3_primary_CGI.sam
+python ../src/CHALM_SVD_imputation.py -d hg19.fa -e 100 -x CG -R Human_CGI_bedfile.txt -L 99 -l 1 -p -r -o output_examples/CD3_primary_chr13_CHALM_extend_100.txt CD3_primary_CGI_chr13.sam
+# time cost: ~11 min
 ```
 ### 6. Deep learning prediction of expression by CHALM
 #### a. Dependencies
