@@ -16,7 +16,7 @@ _note: CHALM depends on above packages, but some tools included in CHALM may hav
 No installations are needed. Simply run the python scripts as:  `python <python scripts>`
 
 CHALM is tested on python 2.7.
-## Code Example (the "example" folder as the working dictory: http://dldcc-web.brc.bcm.edu/lilab/JX/CHALM\_example/example.zip)
+## Code Example (download the example data by this link: http://dldcc-web.brc.bcm.edu/lilab/JX/CHALM\_example.tar.gz)
 ### 1. Calculate the traditional methylation level for promoter CGIs
 #### a. CpG meth ratio
 ```bash
